@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 开发模式，在修改struts配置文件的时候不需要重启容器 -->
+	<constant name="struts.devMode" value="true"/>
+	<package name="default" extends="struts-default">
+		<action name="user_*" class="userAction" method="{1}">
+			<result name="showUser">/showUser.jsp</result>
+			<result name="editUser">/editUser.jsp</result>
+		</action>
+		<!-- 用来完成系统请求转发的action，所有的请求都交给execute -->
+		<action name="send_*_*" class="sendAction">
+			<result name="send">/WEB-INF/{1}/{2}.jsp</result>
+		</action>
+	</package>
+</struts>    
